@@ -1,0 +1,5 @@
+build/
+dist/
+lassi.egg-info/
+lassi.config
+*.pyc

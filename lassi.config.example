@@ -1,0 +1,32 @@
+[
+  {
+    "hostname": "localhost",
+    "username": "root",
+    "password": "root",
+    "package": [
+      {
+        "name": "apache2",
+        "ensure": "present"
+      },
+      {
+        "name": "php-fpm",
+        "ensure": "present"
+      },
+      {
+        "name": "libapache2-mod-php",
+        "notify": ["apache2"]
+      }
+    ],
+    "service": ["apache2"],
+    "file": [
+      {
+        "source": "/tmp/testphp.php",
+        "destination": "/var/www/html/testphp.php",
+        "owner": "www-data",
+        "group": "www-data",
+        "permissions": "0755",
+        "notify": ["apache2"]
+      }
+    ]
+  }
+]
